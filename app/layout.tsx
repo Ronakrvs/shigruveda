@@ -7,6 +7,9 @@ import Navbar from "@/components/navbar"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+   icons: {
+    icon: '/images/logo.png',
+  },
   title: "shigruvedas - Organic Moringa Farm | Fresh Leaves, Powder",
   description:
     "Premium organic moringa products from our farm. Fresh moringa leaves, powder. Bulk orders welcome. Earth to Wellness.",
