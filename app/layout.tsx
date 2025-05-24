@@ -7,9 +7,9 @@ import Navbar from "@/components/navbar"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "shigruvedas - Organic Moringa Farm | Fresh Leaves, Powder & Drumsticks",
+  title: "shigruvedas - Organic Moringa Farm | Fresh Leaves, Powder",
   description:
-    "Premium organic moringa products from our farm. Fresh moringa leaves, powder, and drumsticks. Bulk orders welcome. Earth to Wellness.",
+    "Premium organic moringa products from our farm. Fresh moringa leaves, powder. Bulk orders welcome. Earth to Wellness.",
     generator: 'v0.dev'
 }
 

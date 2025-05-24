@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -7,8 +8,30 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { Mail, Phone, MapPin, Clock, Truck, Leaf } from "lucide-react"
 import Image from "next/image"
+import { useRef, useState } from "react"
+import SuccessModal from "./successModal"
 
 export default function ContactPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const formRef = useRef<HTMLFormElement>(null)
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const form = e.currentTarget
+
+    // Submit to Netlify using FormData
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(form) as any).toString(),
+    })
+      .then(() =>{ setIsModalOpen(true)
+        
+      formRef.current?.reset() })
+
+      .catch((error) => alert("Form submission failed: " + error.message))
+    
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-amber-50">
       <div className="container mx-auto px-4 py-16">
@@ -40,94 +63,105 @@ export default function ContactPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="firstName">First Name *</Label>
-                  <Input id="firstName" placeholder="Your first name" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name *</Label>
-                  <Input id="lastName" placeholder="Your last name" />
-                </div>
-              </div>
+              <form
+                ref={formRef}
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          onSubmit={handleSubmit}
+          className="space-y-6"
+        >
+    <input type="hidden" name="form-name" value="contact" />
 
-              <div className="space-y-2">
-                <Label htmlFor="email">Email Address *</Label>
-                <Input id="email" type="email" placeholder="your@email.com" />
-              </div>
+    <div className="grid grid-cols-2 gap-4">
+      <div className="space-y-2">
+        <Label htmlFor="firstName">First Name *</Label>
+        <Input id="firstName" name="firstName" placeholder="Your first name" required />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="lastName">Last Name *</Label>
+        <Input id="lastName" name="lastName" placeholder="Your last name" required />
+      </div>
+    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number *</Label>
-                <Input id="phone" type="tel" placeholder="+91 98765 43210" />
-              </div>
+    <div className="space-y-2">
+      <Label htmlFor="email">Email Address *</Label>
+      <Input id="email" name="email" type="email" placeholder="your@email.com" required />
+    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="address">Delivery Address</Label>
-                <Textarea id="address" placeholder="Complete address for delivery..." className="min-h-[80px]" />
-              </div>
+    <div className="space-y-2">
+      <Label htmlFor="phone">Phone Number *</Label>
+      <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" required />
+    </div>
 
-              <div className="space-y-4">
-                <Label className="text-base font-semibold">Products Needed *</Label>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="fresh-leaves" />
-                    <Label htmlFor="fresh-leaves" className="flex-1">
-                      Fresh Moringa Leaves
-                    </Label>
-                    <Input placeholder="Quantity" className="w-24" />
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="powder" />
-                    <Label htmlFor="powder" className="flex-1">
-                      Moringa Powder
-                    </Label>
-                    <Input placeholder="Quantity" className="w-24" />
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="drumsticks" />
-                    <Label htmlFor="drumsticks" className="flex-1">
-                      Fresh Drumsticks
-                    </Label>
-                    <Input placeholder="Quantity" className="w-24" />
-                  </div>
-                </div>
-              </div>
+    <div className="space-y-2">
+      <Label htmlFor="address">Delivery Address</Label>
+      <Textarea id="address" name="address" placeholder="Complete address for delivery..." className="min-h-[80px]" />
+    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="order-type">Order Type</Label>
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select order type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="personal">Personal Use</SelectItem>
-                    <SelectItem value="bulk">Bulk Purchase</SelectItem>
-                    <SelectItem value="wholesale">Wholesale Inquiry</SelectItem>
-                    <SelectItem value="retail">Retail Partnership</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+    <div className="space-y-4">
+      <Label className="text-base font-semibold">Products Needed *</Label>
+      <div className="space-y-3">
+        <div className="flex items-center space-x-2">
+          <Checkbox id="fresh-leaves" name="freshLeaves" />
+          <Label htmlFor="fresh-leaves" className="flex-1">Fresh Moringa Leaves</Label>
+          <Input name="freshLeavesQty" placeholder="Quantity" className="w-24" />
+        </div>
+        <div className="flex items-center space-x-2">
+          <Checkbox id="powder" name="powder" />
+          <Label htmlFor="powder" className="flex-1">Moringa Powder</Label>
+          <Input name="powderQty" placeholder="Quantity" className="w-24" />
+        </div>
+        {/* <div className="flex items-center space-x-2">
+          <Checkbox id="drumsticks" name="drumsticks" />
+          <Label htmlFor="drumsticks" className="flex-1">Fresh Drumsticks</Label>
+          <Input name="drumsticksQty" placeholder="Quantity" className="w-24" />
+        </div> */}
+      </div>
+    </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="message">Additional Requirements</Label>
-                <Textarea
-                  id="message"
-                  placeholder="Any specific requirements, delivery preferences, or questions..."
-                  className="min-h-[100px]"
-                />
-              </div>
+    <div className="space-y-2">
+      <Label htmlFor="order-type">Order Type</Label>
+      <Select name="orderType">
+        <SelectTrigger>
+          <SelectValue placeholder="Select order type" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="personal">Personal Use</SelectItem>
+          <SelectItem value="bulk">Bulk Purchase</SelectItem>
+          <SelectItem value="wholesale">Wholesale Inquiry</SelectItem>
+          <SelectItem value="retail">Retail Partnership</SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
 
-              <div className="flex items-center space-x-2">
-                <Checkbox id="terms" />
-                <Label htmlFor="terms" className="text-sm">
-                  I agree to receive updates about my order and promotional offers from shigruvedas
-                </Label>
-              </div>
+    <div className="space-y-2">
+      <Label htmlFor="message">Additional Requirements</Label>
+      <Textarea
+        id="message"
+        name="message"
+        placeholder="Any specific requirements, delivery preferences, or questions..."
+        className="min-h-[100px]"
+      />
+    </div>
 
-              <Button className="w-full bg-green-600 hover:bg-green-700">Submit Order Request</Button>
-            </CardContent>
+    <div className="flex items-center space-x-2">
+      <Checkbox id="terms" name="terms" />
+      <Label htmlFor="terms" className="text-sm">
+        I agree to receive updates about my order and promotional offers from shigruvedas
+      </Label>
+    </div>
+
+    <Button type="submit" className="w-full bg-green-600 hover:bg-green-700">
+      Submit Order Request
+    </Button>
+  </form>
+</CardContent>
+
           </Card>
+          <SuccessModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
+     
           {/* Contact Information */}
           <div className="space-y-8">
             <Card className="border-green-200">

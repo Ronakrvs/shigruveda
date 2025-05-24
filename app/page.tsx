@@ -27,7 +27,7 @@ export default function HomePage() {
           <h1 className="text-4xl md:text-7xl font-bold text-green-800 mb-6 animate-slide-up">Pure Organic Moringa</h1>
           <p className="text-xl md:text-2xl text-green-700 mb-8 max-w-4xl mx-auto leading-relaxed">
             From our organic farms to your wellness journey. Discover the power of nature's most nutritious superfood -
-            fresh moringa leaves, premium powder, and tender drumsticks, grown with love and care.
+            fresh moringa leaves, premium powder, grown with love and care.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button
@@ -73,7 +73,7 @@ export default function HomePage() {
         <p className="text-center text-green-600 mb-12 max-w-2xl mx-auto text-lg">
           Handpicked and processed with care to preserve maximum nutrition and freshness
         </p>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-12">
           <Card className="border-green-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
             <CardHeader>
               <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
@@ -166,7 +166,7 @@ export default function HomePage() {
             </CardContent>
           </Card>
 
-          <Card className="border-green-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+          {/* <Card className="border-green-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
             <CardHeader>
               <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
                 <Shield className="h-10 w-10 text-emerald-600" />
@@ -210,7 +210,7 @@ export default function HomePage() {
                 />
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </section>
 

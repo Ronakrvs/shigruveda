@@ -108,7 +108,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  Every leaf and drumstick is hand-picked by our experienced farmers to ensure only the best quality
+                  Every leaf is hand-picked by our experienced farmers to ensure only the best quality
                   reaches your table.
                 </p>
                 <div className="flex flex-wrap gap-2">
