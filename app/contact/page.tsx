@@ -19,7 +19,7 @@ export default function ContactPage() {
     const form = e.currentTarget
 
     // Submit to Netlify using FormData
-    fetch("/", {
+    fetch("/__forms.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(new FormData(form) as any).toString(),
