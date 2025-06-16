@@ -147,6 +147,58 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Gallery Section */}
+        {/* <div className="mb-16">
+          <h2 className="text-3xl font-bold text-center mb-12 text-green-800">Our Farm in Pictures</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <Card className="border-green-200">
+              <CardContent className="p-0">
+                <Image
+                  src="/images/farm-landscape.jpg"
+                  alt="Moringa farm landscape"
+                  width={400}
+                  height={300}
+                  className="w-full h-48 object-cover rounded-t-lg"
+                />
+                <div className="p-4">
+                  <CardTitle className="text-green-800 text-lg">Vibrant Moringa Fields</CardTitle>
+                  <CardDescription>Lush green fields under natural sunlight</CardDescription>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border-green-200">
+              <CardContent className="p-0">
+                <Image
+                  src="/images/moringa-trees.jpg"
+                  alt="Moringa trees"
+                  width={400}
+                  height={300}
+                  className="w-full h-48 object-cover rounded-t-lg"
+                />
+                <div className="p-4">
+                  <CardTitle className="text-green-800 text-lg">Moringa Trees</CardTitle>
+                  <CardDescription>Thriving trees grown organically</CardDescription>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border-green-200">
+              <CardContent className="p-0">
+                <Image
+                  src="/images/harvesting.jpg"
+                  alt="Hand harvesting moringa"
+                  width={400}
+                  height={300}
+                  className="w-full h-48 object-cover rounded-t-lg"
+                />
+                <div className="p-4">
+                  <CardTitle className="text-green-800 text-lg">Hand Harvesting</CardTitle>
+                  <CardDescription>Careful hand-picking for quality</CardDescription>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div> */}
+
         {/* Why Moringa */}
         <div>
           <h2 className="text-3xl font-bold text-center mb-12 text-green-800">
