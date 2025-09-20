@@ -3,16 +3,14 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-   icons: {
-    icon: '/images/logo.png',
-  },
-  title: "shigruvedas - Organic Moringa Farm | Fresh Leaves, Powder",
+  title: "shigruvedas - Organic Moringa Farm | Fresh Leaves, Powder & Drumsticks",
   description:
-    "Premium organic moringa products from our farm. Fresh moringa leaves, powder. Bulk orders welcome. Earth to Wellness.",
+    "Premium organic moringa products from our farm. Fresh moringa leaves, powder, and drumsticks. Bulk orders welcome. Earth to Wellness.",
     generator: 'v0.dev'
 }
 
@@ -26,6 +24,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         <main>{children}</main>
+        <Footer/>
       </body>
     </html>
   )
