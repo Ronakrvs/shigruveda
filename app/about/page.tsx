@@ -6,12 +6,12 @@ import Image from "next/image"
 import Head from "next/head"
 import Link from "next/link"
 import WhatsAppButton from "@/components/whatsapp-button"
-import moringa from '@/public/moringa.png'
-import moringa1 from '@/public/moringa7.jpeg'
-import moringa2 from '@/public/moringa2.png'
-import moringa3 from '@/public/morinag3.png'
-import moringa4 from '@/public/moringa4.jpeg'
-import moringa5 from '@/public/moringa6.jpeg'
+import moringa from '@/public/moringa.webp'
+import moringa1 from '@/public/moringa7.webp'
+import moringa2 from '@/public/moringa2.webp'
+import moringa3 from '@/public/morinag3.webp'
+import moringa4 from '@/public/moringa4.webp'
+import moringa5 from '@/public/moringa6.webp'
 
 export default function AboutPage() {
   // Structured Data for Farm/Agricultural Business
@@ -23,6 +23,25 @@ export default function AboutPage() {
     "url": "https://shigruvedas.com/about",
     "telephone": "+91-7877255595",
     "email": "shigruvedas@gmail.com",
+    keywords: [
+    "organic moringa Rajasthan",
+    "organic moringa",
+    "moringa leaves",
+    "moringa powder",
+    "moringa",
+    "moringa supplier",
+    "moringa leaves Udaipur", 
+    "moringa powder bulk order",
+    "fresh moringa drumsticks",
+    "organic farming Rajasthan",
+    "moringa supplier India",
+    "shigruvedas moringa",
+    "certified organic moringa",
+    "moringa farm Udaipur",
+    "wholesale moringa products",
+    "chemical-free moringa",
+    "ayurvedic moringa"
+  ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "248, A-Block, hiran magri",
